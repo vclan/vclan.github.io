@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form>
+  Height:<br>
+  <input type="text" name="height" id="txt_height" value="">
+  <br>
+  Base: <br>
+  <input type="text" name="base" id="txt_base"value="">
+  <br><br>
+  <input type="submit" value="Submit" onclick="triangleArea()">
+  <br>
+   <input type="text" name="area" id="txt_area" value="">
+
+</form>
+ <script>
+
+
+ function triangleArea() {
+     //alert("In triangleArea()")
+     var Base=document.getElementById("txt_base").value;
+    // alert(Base);
+     var Height=document.getElementById("txt_height").value;
+    // alert(Height);
+    var Areaval = Base * Height/2;
+    
+    
+    alert(Areaval);
+    document.getElementById("txt_area").value ="Area is: " + Areaval;
+}
+
+
+  </script>
+</body>
+</html>
+
+
+
