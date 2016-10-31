@@ -1,0 +1,62 @@
+function pile(name, stones) {
+  this.name = name;
+  this.stones = stones;
+  display = function(name, stones) {
+    console.log(this.name + " " + this.stones);
+  }
+}
+var pileA = new pile("A", "ooooo");
+var pileB = new pile("B", "ooooo");
+var pileC = new pile("C", "ooooo");
+
+function displayBoard() {
+  console.log("Game OF NIM!");
+  console.log(pileA, pileB, pileC);
+}
+
+function yourMove() {
+  displayBoard();
+  var moveData = prompt("Enter the letter of the pile and the number of stones to take.\n " 
+    + "Ex.B5 or A2 ");
+    if (moveData[0] == 'A') {
+      var x = pileA.stones.length - moveData[1];
+      pileA.stones = pileA.stones.slice(0, x);
+      return pileA.stones;
+    } else if (moveData[0] == 'B') {
+      var x = pileB.stones.length - moveData[1];
+      pileB.stones = pileB.stones.slice(0, x);
+      return pileB.stones;
+    } else if (moveData[0] == 'C') {
+      var x = pileC.stones.length - (moveData[1] + 1);
+      pileC.stones = pileC.stones.slice(0, x);
+      return pileC.stones;
+    }
+  }
+
+  function computersMove() {
+    displayBoard();
+    alert("Now it is the computer's turn!");
+    if (pileA.stones != "") {
+      pileA.stones = pileA.stones.slice(0, 0);
+      return pileA.stones;
+    } else if (pileB.stones != "") {
+      pileB.stones = pileB.stones.slice(0, 0);
+      return pileB.stones;
+    } else if (pileC.stones != "") {
+      pileC.stones = pileC.stones.slice(0, 0);
+      return pileC.stones;
+    }
+    if (pileA.stones == "" && pileB.stones == "" && pileC.stones == "") {
+      console.log("Computer Wins!!!");
+    }
+  }
+  while (pileA.stones != "" || pileB.stones != "" || pileC.stones != "") {
+    yourMove();
+    if (pileA.stones == "" && pileB.stones == "" && pileC.stones == "") {
+      console.log("You win!!!");
+    }
+    if (pileA.stones != "" || pileB.stones != "" || pileC.stones != "") {
+      computersMove();
+    }
+  }
+  alert('Game Over!');
