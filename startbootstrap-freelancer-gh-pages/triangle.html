@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+
+<form id="Area of a triangle">
+  Height:<br>
+  <input type="text" name="height" id="txt_height" value="">
+  <br>
+  Base: <br>
+  <input type="text" name="base" id="txt_base"value="">
+  <br><br>
+  
+  
+</form>
+
+<input type="submit" value="Submit" onclick="triangleArea()">
+<input type="button" onclick="triangleArea()" value="Reset ">
+
+
+
+<div id="container"></div>
+
+ <script>
+ var newdiv = document.createElement("div");
+ function triangleArea() {
+    
+     var Base=document.getElementById("txt_base").value;
+    
+     var Height=document.getElementById("txt_height").value;
+    
+    var Areaval = Base * Height/2;
+    var strArea = "<h2>The area of Triangle is: " + Areaval + "</h2>";
+    
+   newdiv.innerHTML = strArea;
+   var container = document.getElementById("container");
+   container.appendChild(newdiv);
+document.getElementById("Area of a triangle").reset();
+
+
+
+
+
+ }
+
+  </script>
+</body>
+</html>
+
+
+
+
