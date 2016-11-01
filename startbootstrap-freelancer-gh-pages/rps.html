@@ -1,61 +1,146 @@
-<div id="console-log"></div>
-<script>
+<HTML>
 
-var consoleLine = "<p class=\"console-line\"></p>";
+<HEAD>
 
-// Note: This doesn't handle arrays very well (PTD)
+<SCRIPT LANGUAGE = "JavaScript">
 
-console = {
-    log: function (text) {
-        $("#console-log").append($(consoleLine).html(text));
-    }
-};
+	var mywins = 0
 
-// Get the human player's choice
+	var compwins = 0
 
-var userChoice = prompt("Do you choose rock, paper or scissors?");
+var x = 'y'
 
-// Generate computer's choice
+function intro(){
 
-var computerChoice = Math.random();
 
-if (computerChoice < 0.33) {
-    computerChoice = "rock";
-} else if (computerChoice > 0.66) {
-    computerChoice = "paper";
-} else {
-    computerChoice = "scissors";
+	var name = prompt('What is your name?');
+
+	alert('Hello, ' + name + '!');
+
+	alert('I want to play rock, paper, scissors with you, ' + name + '.');
+
+	alert("Let's begin.");
+
+	alert("type 's' for scissors, 'r' for rock, and 'p' for paper!");
+
 }
 
-console.log("Computer: " + computerChoice);
+function MainLoop(){
+	var mywins = 0
 
-// Helper function to see if the both choices match two particular values (i.e.
-// one of the choices is one value and the other choice is the other value. This
-// helps simplify and make the winning logic easier to read.
+	var compwins = 0
 
-var areThey = function (value1, value2, choice1, choice2) {
-    if (value1 === choice1 && value2 === choice2) {
-        return (true);
-    } else if (value1 === choice2 && value2 === choice1) {
-        return (true);
-    }
-    return (false);
+	while(compwins < 3 || mywins < 3){
+
+	var choice=prompt('Your turn!');
+
+	var compchoice=Math.floor(Math.random()*3);
+
+	if(choice == 'r' && compchoice == 0){
+
+		alert("That's a tie!");
+
+			}else if(choice == 'r' && compchoice == 1){
+
+			alert('I won!');
+
+			compwins = compwins + 1
+
+			}else if (choice == 'r' && compchoice == 2){
+
+			alert('You won!');
+
+			mywins = mywins + 1
+
+			}else if ( choice == 'p' && compchoice == 0){
+
+			alert('You won!');
+
+			mywins = mywins + 1
+
+			}else if (choice == 'p' && compchoice == 1){
+
+			alert('Darn! A tie!');
+
+			}else if (choice == 'p' && compchoice == 2){
+
+			alert('Haha! I picked scissors!');
+
+			compwins = compwins + 1
+
+			}else if (choice == 's' && compchoice == 0){
+
+			alert('Oh! So sad! I won that round!')
+
+			compwins = compwins + 1
+
+			}else if (choice == 's' && compchoice == 1){
+
+			alert('Ugh. I guess you won that round...');
+
+			mywins = mywins + 1
+
+			}else if (choice == 's' && compchoice == 2){
+
+			alert('A tie!')
+
+			}
+
+	alert(mywins + '-' + compwins);
+
+	if(mywins == 3 || compwins == 3){
+
+		break;
+
+		}
+
+	}
+
 }
 
-// Determine which of the choices made is the winner or if there is a tie
+function DisplayWin(){
 
-var compare = function (choice1, choice2) {
-    if (areThey("paper", "rock", choice1, choice2)) {
-        return ("paper wins");
-    } else if (areThey("paper", "scissors", choice1, choice2)) {
-        return ("scissors wins");
-    } else if (areThey("scissors", "rock", choice1, choice2)) {
-        return ("rock wins");
-    }
-    return ("it's a tie!");
+if(compwins == 3){
+
+	alert("That's it! Three wins! I won the game! HAHA!");
+
+}else if(mywins == 3){
+
+	alert("Crap! you won! Bet you can't beat me TWICE in a row!");
+
 }
 
-// Show the results
+}
 
-console.log(compare(userChoice, computerChoice));
-</script>
+function playagain(){
+
+	var x = prompt("Play again? (y) or (n)")
+
+}
+
+</SCRIPT>
+
+</HEAD>
+
+<BODY>
+
+<SCRIPT>
+
+while(2<3){
+
+	intro();
+
+
+	MainLoop();
+
+	DisplayWin();
+
+	playagain();
+
+}
+
+</SCRIPT>
+
+</BODY>
+
+</HTML>
