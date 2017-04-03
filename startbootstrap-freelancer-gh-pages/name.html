@@ -1,0 +1,56 @@
+<h1>Random name Generator</h1>
+
+<FORM NAME="WordForm">  
+<INPUT TYPE=TEXT NAME="WordBox" id="wordbox"><BR>
+<INPUT TYPE=BUTTON VALUE="Generate" onClick="PickRandomWord(document.WordForm);" id="button">
+</FORM>
+  <script>
+    var NumberOfWords = 28
+
+var words = new BuildArray(NumberOfWords)
+
+
+words[1] = "varun"
+words[2] = "venkatesh"
+words[3] = "Ke Ke baaz"
+words[4] = "arathi"
+words[5] = "adarsh "
+words[6] = "ramir"
+words[7] = "ronak"
+words[8] = "akhil"
+words[9] = "carson"
+words[10] = "rohit"
+words[11] = "tanish the danish"
+words[12] = "cunsh"
+words[13] = "steve"
+words[14] = "bob"
+words[15] = "joe"
+words[16] = "marcus"
+words[17] = "agneya"
+words[18] = "sriram"
+words[19] = "irya"
+words[20] = "pradual"
+words[21] = "sid"
+words[22] = "shashank"
+words[23] = "suhaas"
+words[24] = "dhruv"
+words[25] = "arav"
+words[26] = "Billy bob joe"
+words[27] = "Baazi"
+words[28] = "Chase"
+
+function BuildArray(size){
+this.length = size
+for (var i = 1; i <= size; i++){
+this[i] = null}
+return this
+}
+
+function PickRandomWord(frm) {
+
+var rnd = Math.ceil(Math.random() * NumberOfWords)
+
+
+frm.WordBox.value = words[rnd]
+}
+  </script>
